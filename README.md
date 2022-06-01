@@ -18,8 +18,23 @@ Código para practicar la implementación de microservicios. Se usa el curso [Cu
 
 ## Persistencia
 
-Cada microservicio tendrá una BD propia.
+Cada microservicio debería tener una BD propia. Para simplificarlo se usará una misma base de datos pero se añadirán schema propios para cada microservicio.
+
+### Migraciones con CLI
+
+> NOTA: Los comandos se ejecutan en la terminal y ubicado en la ruta del proyecto de persistencia.
+
+- Crear Migración: `dotnet ef migrations add Initialize -s ../AAAAAAA.Api`
+- Aplicar migraciones: `dotnet ef database update -s ../AAAAAAA.Api`
+
+Información adicional:
+- [Microsoft Docs: Descripción general de las migraciones](https://docs.microsoft.com/es-es/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+- [Microsoft Docs: Referencia de herramientas de Entity Framework Core: CLI de .NET Core](https://docs.microsoft.com/es-es/ef/core/cli/dotnet)
 
 ## Encapsulamiento
 
 Se crearán tres gateway, uno para Catalog, Customer y Order Api.
+
+## Eventos
+
+Se usará MediatR como mediador para lanzar los comandos.
