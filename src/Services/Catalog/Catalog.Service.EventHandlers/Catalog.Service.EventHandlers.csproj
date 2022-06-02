@@ -11,9 +11,7 @@
     <None Remove="MediatR" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Catalog.Common.Enums\Catalog.Common.Enums.csproj" />
     <ProjectReference Include="..\Catalog.Persistence.Database\Catalog.Persistence.Database.csproj" />
     <ProjectReference Include="..\Catalog.Domain\Catalog.Domain.csproj" />
   </ItemGroup>

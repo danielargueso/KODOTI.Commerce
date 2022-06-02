@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1703.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Clients", "01. Clients", "{C41242B1-F171-4591-BBBB-11E11A5DE9B4}"
 EndProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Customer", "03. Custome
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Order", "04. Order", "{A9308D47-5F9D-4FF0-8111-75DBABBE6926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Api", "Services\Catalog\Catalog.Api\Catalog.Api.csproj", "{4EA72EBD-1DDB-4039-BD4E-1ACC38DBBEF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Api", "Services\Catalog\Catalog.Api\Catalog.Api.csproj", "{4EA72EBD-1DDB-4039-BD4E-1ACC38DBBEF1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. API", "01. API", "{62B253BB-7EEB-485B-80C9-A8287BD9C8FE}"
 EndProject
@@ -27,26 +27,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Persistence", "03. Pers
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Models", "04. Models", "{B190D923-C81A-4A0A-BF62-606E784A14E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Domain", "Services\Catalog\Catalog.Domain\Catalog.Domain.csproj", "{932F465F-4DA5-4C2E-83AE-B3B1CBF03584}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Domain", "Services\Catalog\Catalog.Domain\Catalog.Domain.csproj", "{932F465F-4DA5-4C2E-83AE-B3B1CBF03584}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Persistence.Database", "Services\Catalog\Catalog.Persistence.Database\Catalog.Persistence.Database.csproj", "{5079AD4E-D4C7-4F79-9120-CE1FC2B8D87E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Persistence.Database", "Services\Catalog\Catalog.Persistence.Database\Catalog.Persistence.Database.csproj", "{5079AD4E-D4C7-4F79-9120-CE1FC2B8D87E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99. Documentation", "99. Documentation", "{8BBCA22D-B64F-4483-AE11-D335246F670D}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Service.Queries", "Services\Catalog\Catalog.Service.Queries\Catalog.Service.Queries.csproj", "{C60D4526-F5F9-4F7D-8C1A-6B66595BB438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Service.Queries", "Services\Catalog\Catalog.Service.Queries\Catalog.Service.Queries.csproj", "{C60D4526-F5F9-4F7D-8C1A-6B66595BB438}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BC84A1F7-9A8D-4153-985A-BA80A1F081AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Common.Collection", "Services\Common\Service.Common.Collection\Service.Common.Collection.csproj", "{D1440C8F-0B79-4562-A586-04BD243E3084}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Common.Collection", "Services\Common\Service.Common.Collection\Service.Common.Collection.csproj", "{D1440C8F-0B79-4562-A586-04BD243E3084}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Common.Mapping", "Services\Common\Service.Common.Mapping\Service.Common.Mapping.csproj", "{BCAA0A20-7A4C-4CF1-8F40-4126F8EC1DD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Common.Mapping", "Services\Common\Service.Common.Mapping\Service.Common.Mapping.csproj", "{BCAA0A20-7A4C-4CF1-8F40-4126F8EC1DD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Common.Paging", "Services\Common\Service.Common.Paging\Service.Common.Paging.csproj", "{D7AB4AE3-3D02-40E8-9D52-A9CAFADFBE7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Common.Paging", "Services\Common\Service.Common.Paging\Service.Common.Paging.csproj", "{D7AB4AE3-3D02-40E8-9D52-A9CAFADFBE7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Service.EventHandlers", "Services\Catalog\Catalog.Service.EventHandlers\Catalog.Service.EventHandlers.csproj", "{DD0B5D0D-7074-468C-BEB5-435E1C644625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Service.EventHandlers", "Services\Catalog\Catalog.Service.EventHandlers\Catalog.Service.EventHandlers.csproj", "{DD0B5D0D-7074-468C-BEB5-435E1C644625}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Common", "05. Common", "{82F55772-EC5E-45E2-A448-3EC7C1ADF84C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Common.Enums", "Services\Catalog\Catalog.Common.Enums\Catalog.Common.Enums.csproj", "{FF1EDA48-9F97-4BC3-B2BB-10377A2806D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Common", "04. Common", "{DDC25DE7-685A-467A-A435-F910927AC004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging", "Common\Common.Logging\Common.Logging.csproj", "{2D251760-79A5-4469-90FE-6F63E0518EE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,12 +94,17 @@ Global
 		{DD0B5D0D-7074-468C-BEB5-435E1C644625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD0B5D0D-7074-468C-BEB5-435E1C644625}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD0B5D0D-7074-468C-BEB5-435E1C644625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF1EDA48-9F97-4BC3-B2BB-10377A2806D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF1EDA48-9F97-4BC3-B2BB-10377A2806D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF1EDA48-9F97-4BC3-B2BB-10377A2806D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF1EDA48-9F97-4BC3-B2BB-10377A2806D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D251760-79A5-4469-90FE-6F63E0518EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D251760-79A5-4469-90FE-6F63E0518EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D251760-79A5-4469-90FE-6F63E0518EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D251760-79A5-4469-90FE-6F63E0518EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7B36EF1D-76EB-4751-B201-475134D18027}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7388D390-6E97-4F0B-A68D-7D230D5ED78B} = {BAD1D4C7-7B53-4182-B892-BC420078C177}
@@ -111,5 +124,11 @@ Global
 		{BCAA0A20-7A4C-4CF1-8F40-4126F8EC1DD7} = {BC84A1F7-9A8D-4153-985A-BA80A1F081AB}
 		{D7AB4AE3-3D02-40E8-9D52-A9CAFADFBE7D} = {BC84A1F7-9A8D-4153-985A-BA80A1F081AB}
 		{DD0B5D0D-7074-468C-BEB5-435E1C644625} = {1FD1AFB8-B1D8-406F-B9DA-FA67012D086A}
+		{82F55772-EC5E-45E2-A448-3EC7C1ADF84C} = {B94566BA-E99B-4F75-AC30-69B977C40FE7}
+		{FF1EDA48-9F97-4BC3-B2BB-10377A2806D7} = {82F55772-EC5E-45E2-A448-3EC7C1ADF84C}
+		{2D251760-79A5-4469-90FE-6F63E0518EE3} = {DDC25DE7-685A-467A-A435-F910927AC004}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B36EF1D-76EB-4751-B201-475134D18027}
 	EndGlobalSection
 EndGlobal
