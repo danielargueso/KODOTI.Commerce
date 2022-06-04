@@ -2,9 +2,11 @@
 using Catalog.Persistence.Database;
 using Catalog.Service.Queries;
 using Catalog.Service.Queries.Contracts;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Common.Logging;
+using HealthChecks.UI.Client;
+using MediatR;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(opts =>
         x => x.MigrationsHistoryTable(PersistenceSettings.DbMigrationsTableName, PersistenceSettings.DbSchemaName)
         )
     );
+
+// Add Health Check
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<ApplicationDbContext>();
+
+builder.Services.AddHealthChecksUI()
+    .AddInMemoryStorage();
 
 // Add LogSystem
 builder.Logging.AddProvider(
@@ -54,6 +63,21 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Add Health Check End Point
+app.MapHealthChecks("/healthcheck", new HealthCheckOptions()
+{
+    Predicate = _ => true,
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+
+app.MapHealthChecksUI();
+
+app.UseHealthChecksUI(options =>
+{
+    options.UIPath = "/healthchecks-ui";
+    options.ApiPath = "/health-ui-api";
+});
 
 app.Run();
 

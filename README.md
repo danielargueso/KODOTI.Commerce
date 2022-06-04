@@ -37,4 +37,4 @@ Se crearán tres gateway, uno para Catalog, Customer y Order Api.
 
 ## Eventos
 
-Se usará MediatR como mediador para lanzar los comandos.
+Se usará MediatR como mediador para lanzar los comandos. Se enviarán a PaperTrail.
