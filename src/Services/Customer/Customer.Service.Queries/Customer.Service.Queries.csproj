@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Customer.Persistance.Database\Customer.Persistance.Database.csproj" />
+    <ProjectReference Include="..\..\Common\Service.Common.Collection\Service.Common.Collection.csproj" />
+    <ProjectReference Include="..\..\Common\Service.Common.Mapping\Service.Common.Mapping.csproj" />
+    <ProjectReference Include="..\..\Common\Service.Common.Paging\Service.Common.Paging.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="DTOs\" />
+    <None Remove="Contracts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Contracts\" />
+  </ItemGroup>
+</Project>
