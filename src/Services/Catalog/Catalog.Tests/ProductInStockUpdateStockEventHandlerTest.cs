@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using static Catalog.Common.Enums.Enums;
 using System;
 using Catalog.Service.EventHandlers.Exceptions;
+using System.Linq;
 
 namespace Catalog.Tests;
 
@@ -107,5 +108,73 @@ public class ProductInStockUpdateStockEventHandlerTest
             }
             throw;
         }
+    }
+
+    [TestMethod]
+    public void TryToAddStockWhenProductHasStock()
+    {
+        var context = ApplicationDbContextInMemory.Get();
+
+        var productInStockId = 3;
+        var productId = 3;
+
+        context.Stocks.Add(new ProductInStock
+        {
+            ProductInStockId = productInStockId,
+            ProductId = productId,
+            Stock = 1
+        });
+
+        context.SaveChanges();
+
+        var handler = new ProductInStockUpdateStockEventHandler(context, GetLogger);
+
+        handler.Handle(
+            new ProductInStockUpdateStockCommand
+            {
+                Items = new List<ProductInStockUpdateStockCommandItem>()
+                {
+                    new ProductInStockUpdateStockCommandItem
+                    {
+                        ProductId = productId,
+                        Action = ProductInStockAction.Add,
+                        Stock = 2
+                    }
+                }
+            },
+            new CancellationToken()).Wait();
+
+        var stockInDataBase = context.Stocks.Single(x => x.ProductId == productId).Stock;
+
+        Assert.AreEqual(stockInDataBase, 3);
+    }
+
+    [TestMethod]
+    public void TryToAddStockWhenProductNotExist()
+    {
+        var context = ApplicationDbContextInMemory.Get();
+
+        var productId = 4;
+
+        var handler = new ProductInStockUpdateStockEventHandler(context, GetLogger);
+
+        handler.Handle(
+            new ProductInStockUpdateStockCommand
+            {
+                Items = new List<ProductInStockUpdateStockCommandItem>()
+                {
+                    new ProductInStockUpdateStockCommandItem
+                    {
+                        ProductId = productId,
+                        Action = ProductInStockAction.Add,
+                        Stock = 2
+                    }
+                }
+            },
+            new CancellationToken()).Wait();
+
+        var stockInDataBase = context.Stocks.Single(x => x.ProductId == productId).Stock;
+
+        Assert.AreEqual(stockInDataBase, 2);
     }
 }
