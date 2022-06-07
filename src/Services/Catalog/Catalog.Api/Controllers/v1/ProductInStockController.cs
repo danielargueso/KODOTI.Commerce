@@ -7,7 +7,7 @@ using Service.Common.Collection;
 
 namespace Catalog.Api.Controllers
 {
-    [Route("/stocks")]
+    [Route("v1/stocks")]
     [ApiController]
     public class ProductInStockController : ControllerBase
     {

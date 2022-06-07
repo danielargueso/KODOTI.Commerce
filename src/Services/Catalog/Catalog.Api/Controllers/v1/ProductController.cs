@@ -7,16 +7,16 @@ using Service.Common.Collection;
 
 namespace Catalog.Api.Controllers
 {
-    [Route("/products")]
+    [Route("v1/products")]
 	[ApiController]
 	public class ProductController : ControllerBase
 	{
-		private readonly ILogger<DefaultController> _logger;
+		private readonly ILogger<ProductController> _logger;
 		private readonly IProductQueryService _productQueryService;
 		private readonly IMediator _mediator;
 
 
-        public ProductController(ILogger<DefaultController> logger, IProductQueryService productQueryService, IMediator mediator)
+        public ProductController(ILogger<ProductController> logger, IProductQueryService productQueryService, IMediator mediator)
         {
             _logger = logger;
             _productQueryService = productQueryService;
