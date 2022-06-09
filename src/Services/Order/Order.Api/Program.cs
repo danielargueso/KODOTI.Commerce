@@ -1,8 +1,14 @@
-﻿using System.Reflection;
+﻿using System.Configuration;
+using System.Reflection;
 using Common.Logging;
+using HealthChecks.UI.Client;
 using MediatR;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using Order.Persistence.Database;
+using Order.Service.Proxy;
+using Order.Service.Proxy.Catalog;
+using Order.Service.Proxy.Catalog.Contracts;
 using Order.Service.Queries;
 using Order.Service.Queries.Contracts;
 
@@ -18,6 +24,20 @@ builder.Services.AddDbContext<OrderDbContext>(opts =>
         )
     );
 
+// Add Health Check
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<OrderDbContext>();
+
+builder.Services.AddHealthChecksUI()
+    .AddInMemoryStorage();
+
+// API Urls
+builder.Services.Configure<ApiUrls>(
+    opts => builder.Configuration.GetSection("ApiUrls").Bind(opts)
+    );
+
+// Proxies
+builder.Services.AddHttpClient<ICatalogProxy, CatalogProxy>();
 
 // Add LogSystem
 builder.Logging.AddProvider(
@@ -50,6 +70,21 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Add Health Check End Point
+app.MapHealthChecks("/healthcheck", new HealthCheckOptions()
+{
+    Predicate = _ => true,
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+
+app.MapHealthChecksUI();
+
+app.UseHealthChecksUI(options =>
+{
+    options.UIPath = "/healthchecks-ui";
+    options.ApiPath = "/health-ui-api";
+});
 
 app.Run();
 

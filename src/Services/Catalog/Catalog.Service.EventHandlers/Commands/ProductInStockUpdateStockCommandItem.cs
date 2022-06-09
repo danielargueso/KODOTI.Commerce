@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Catalog.Common.Enums.Enums;
+﻿using static Catalog.Common.Enums.Enums;
 
 namespace Catalog.Service.EventHandlers.Commands
 {

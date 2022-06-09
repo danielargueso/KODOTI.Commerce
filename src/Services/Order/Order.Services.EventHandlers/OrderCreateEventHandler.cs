@@ -3,6 +3,8 @@ using Common.Helpers.MathHelpers;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Order.Persistence.Database;
+using Order.Service.Proxy.Catalog.Commands;
+using Order.Service.Proxy.Catalog.Contracts;
 using Order.Services.EventHandlers.Commands;
 
 namespace Order.Services.EventHandlers
@@ -12,11 +14,13 @@ namespace Order.Services.EventHandlers
 	{
 		private readonly OrderDbContext _context;
 		private readonly ILogger<OrderCreateEventHandler> _logger;
-		
-        public OrderCreateEventHandler(OrderDbContext context, ILogger<OrderCreateEventHandler> logger)
+        private readonly ICatalogProxy _catalogProxy;
+
+        public OrderCreateEventHandler(OrderDbContext context, ILogger<OrderCreateEventHandler> logger, ICatalogProxy catalogProxy)
         {
             _context = context;
             _logger = logger;
+            _catalogProxy = catalogProxy;
         }
 
         public async Task Handle(OrderCreateCommand notification, CancellationToken cancellationToken)
@@ -42,7 +46,24 @@ namespace Order.Services.EventHandlers
             _logger.LogInformation($"Order {entry.OrderId} was created");
 
             // 04. Update Stocks
-            _logger.LogInformation("Updating stock");
+            try
+            {
+                var productInStockUpdateStockCommand = new ProductInStockUpdateStockCommand()
+                {
+                    Items = notification.Items.Select(x => new ProductInStockUpdateStockCommandItem()
+                    {
+                        Action = Service.Proxy.Catalog.Enums.ProductInStockAction.Substract,
+                        ProductId = x.ProductId,
+                        Stock = x.Quantity,
+                    })
+                };
+                await _catalogProxy.UpdateStockAsync(productInStockUpdateStockCommand);
+                _logger.LogInformation("Updating stock");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error creating order. The stock of one or multiple items, isn't enought.");
+            }
 
             // Lógica para actualizar el stock
 

@@ -110,6 +110,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Helpers", "Common\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Services.EventHandlers", "Services\Order\Order.Services.EventHandlers\Order.Services.EventHandlers.csproj", "{64FF7F22-547D-428C-9BBD-8A7F0F040A5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Service.Proxy", "Services\Order\Order.Service.Proxy\Order.Service.Proxy.csproj", "{40F996A0-0647-4D94-933E-83DC78A6D9B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -212,6 +214,10 @@ Global
 		{64FF7F22-547D-428C-9BBD-8A7F0F040A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64FF7F22-547D-428C-9BBD-8A7F0F040A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64FF7F22-547D-428C-9BBD-8A7F0F040A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40F996A0-0647-4D94-933E-83DC78A6D9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40F996A0-0647-4D94-933E-83DC78A6D9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40F996A0-0647-4D94-933E-83DC78A6D9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40F996A0-0647-4D94-933E-83DC78A6D9B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -264,6 +270,7 @@ Global
 		{D653BCCA-2A71-4C93-89F8-19F1FEBBDA7C} = {A3975FBA-E088-48C2-961D-6145F296FBB9}
 		{86E71881-7C1D-4A78-B612-39E27878528B} = {DDC25DE7-685A-467A-A435-F910927AC004}
 		{64FF7F22-547D-428C-9BBD-8A7F0F040A5C} = {A3975FBA-E088-48C2-961D-6145F296FBB9}
+		{40F996A0-0647-4D94-933E-83DC78A6D9B9} = {A3975FBA-E088-48C2-961D-6145F296FBB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B36EF1D-76EB-4751-B201-475134D18027}

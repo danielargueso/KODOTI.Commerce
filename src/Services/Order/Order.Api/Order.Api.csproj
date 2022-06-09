@@ -48,6 +48,9 @@
     <ProjectReference Include="..\Order.Services.EventHandlers\Order.Services.EventHandlers.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\Order.Service.Proxy\Order.Service.Proxy.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\v1\" />
