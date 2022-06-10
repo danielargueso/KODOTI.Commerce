@@ -9,8 +9,30 @@
 
   <ItemGroup>
     <None Remove="Azure.Messaging.ServiceBus" />
+    <None Remove="AzureServiceBus\" />
+    <None Remove="Microsoft.Extensions.Hosting" />
+    <None Remove="appsettings.json" />
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
+    <None Remove="Microsoft.Extensions.Http" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.8.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AzureServiceBus\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.json" Condition="'$(ExcludeConfigFilesFromBuildOutput)'!='true'">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Catalog.Service.Proxy\Catalog.Service.Proxy.csproj" />
+    <ProjectReference Include="..\..\..\Common\Common.Logging\Common.Logging.csproj" />
   </ItemGroup>
 </Project>

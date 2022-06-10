@@ -116,6 +116,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Listeners", "03. Listen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Listener", "Services\Catalog\Catalog.Listener\Catalog.Listener.csproj", "{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Service.Proxy", "Services\Catalog\Catalog.Service.Proxy\Catalog.Service.Proxy.csproj", "{DE149AE5-215E-4C0D-A0DD-7F155DD92959}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -226,6 +228,10 @@ Global
 		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE149AE5-215E-4C0D-A0DD-7F155DD92959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE149AE5-215E-4C0D-A0DD-7F155DD92959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE149AE5-215E-4C0D-A0DD-7F155DD92959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE149AE5-215E-4C0D-A0DD-7F155DD92959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,6 +287,7 @@ Global
 		{40F996A0-0647-4D94-933E-83DC78A6D9B9} = {A3975FBA-E088-48C2-961D-6145F296FBB9}
 		{A9CBF832-5ED2-4408-AC7F-691B10497B87} = {B94566BA-E99B-4F75-AC30-69B977C40FE7}
 		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C} = {A9CBF832-5ED2-4408-AC7F-691B10497B87}
+		{DE149AE5-215E-4C0D-A0DD-7F155DD92959} = {1FD1AFB8-B1D8-406F-B9DA-FA67012D086A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B36EF1D-76EB-4751-B201-475134D18027}
