@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. API", "01. API", "{62B2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Services", "02. Services", "{1FD1AFB8-B1D8-406F-B9DA-FA67012D086A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Persistence", "03. Persistence", "{5F76EDA4-BD1F-4011-ACDC-4046FE0E6990}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06. Persistence", "06. Persistence", "{5F76EDA4-BD1F-4011-ACDC-4046FE0E6990}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Models", "04. Models", "{B190D923-C81A-4A0A-BF62-606E784A14E6}"
 EndProject
@@ -56,7 +56,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Common", "04. Common", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging", "Common\Common.Logging\Common.Logging.csproj", "{2D251760-79A5-4469-90FE-6F63E0518EE3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06. Testing", "06. Testing", "{B19C4314-8742-4D5A-83AA-DFFDAEDE56F1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07. Testing", "07. Testing", "{B19C4314-8742-4D5A-83AA-DFFDAEDE56F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Tests", "Services\Catalog\Catalog.Tests\Catalog.Tests.csproj", "{D8F4E905-4155-471A-B631-5184E7AF6B69}"
 EndProject
@@ -111,6 +111,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Services.EventHandlers", "Services\Order\Order.Services.EventHandlers\Order.Services.EventHandlers.csproj", "{64FF7F22-547D-428C-9BBD-8A7F0F040A5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Service.Proxy", "Services\Order\Order.Service.Proxy\Order.Service.Proxy.csproj", "{40F996A0-0647-4D94-933E-83DC78A6D9B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Listeners", "03. Listeners", "{A9CBF832-5ED2-4408-AC7F-691B10497B87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Listener", "Services\Catalog\Catalog.Listener\Catalog.Listener.csproj", "{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -218,6 +222,10 @@ Global
 		{40F996A0-0647-4D94-933E-83DC78A6D9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40F996A0-0647-4D94-933E-83DC78A6D9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40F996A0-0647-4D94-933E-83DC78A6D9B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -271,8 +279,14 @@ Global
 		{86E71881-7C1D-4A78-B612-39E27878528B} = {DDC25DE7-685A-467A-A435-F910927AC004}
 		{64FF7F22-547D-428C-9BBD-8A7F0F040A5C} = {A3975FBA-E088-48C2-961D-6145F296FBB9}
 		{40F996A0-0647-4D94-933E-83DC78A6D9B9} = {A3975FBA-E088-48C2-961D-6145F296FBB9}
+		{A9CBF832-5ED2-4408-AC7F-691B10497B87} = {B94566BA-E99B-4F75-AC30-69B977C40FE7}
+		{D69F0EB6-659D-430D-B33E-356F5F4F5E5C} = {A9CBF832-5ED2-4408-AC7F-691B10497B87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B36EF1D-76EB-4751-B201-475134D18027}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.StandardHeader = $1
 	EndGlobalSection
 EndGlobal

@@ -30,14 +30,18 @@ builder.Services.AddHealthChecks()
 
 builder.Services.AddHealthChecksUI()
     .AddInMemoryStorage();
-
+ 
 // API Urls
 builder.Services.Configure<ApiUrls>(
-    opts => builder.Configuration.GetSection("ApiUrls").Bind(opts)
+    opts => builder.Configuration.GetSection(ApiUrls.SectionName).Bind(opts)
     );
 
 // Proxies
-builder.Services.AddHttpClient<ICatalogProxy, CatalogProxy>();
+builder.Services.Configure<AzureServiceBus>(
+    opts => builder.Configuration.GetSection(AzureServiceBus.SectionName).Bind(opts)
+    );
+//builder.Services.AddHttpClient<ICatalogProxy, CatalogHttpProxy>();
+builder.Services.AddTransient<ICatalogProxy, CatalogQueueProxy>();
 
 // Add LogSystem
 builder.Logging.AddProvider(

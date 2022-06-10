@@ -7,12 +7,12 @@ using Order.Service.Proxy.Catalog.Contracts;
 
 namespace Order.Service.Proxy.Catalog;
 
-public class CatalogProxy : ICatalogProxy
+public class CatalogHttpProxy : ICatalogProxy
 {
     private readonly ApiUrls _apiUrls;
     private readonly HttpClient _httpClient;
 
-    public CatalogProxy(IOptions<ApiUrls> apiUrls, HttpClient httpClient)
+    public CatalogHttpProxy(IOptions<ApiUrls> apiUrls, HttpClient httpClient)
     {
         _apiUrls = apiUrls.Value;
         _httpClient = httpClient;
