@@ -22,8 +22,8 @@ namespace Identity.Api.Controllers.v1
             _mediator = mediator;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(UserCreateCommand command)
+        [HttpPost("createuser")]
+        public async Task<IActionResult> CreateUser(UserCreateCommand command)
         {
             if (ModelState.IsValid)
             {
@@ -31,9 +31,30 @@ namespace Identity.Api.Controllers.v1
 
                 if (!result.Succeeded)
                 {
+                    _logger.LogError("Error during user creation process for user name: '{mail}'", command.Email);
                     return BadRequest(result.Errors);
                 }
 
+                return Ok(result);
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPost("authentication")]
+        public async Task<IActionResult> Authentication(UserLoginCommand command)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _mediator.Send(command);
+
+                if (!result.Succeeded)
+                {
+                    _logger.LogWarning("Invalid login attempt using for user name: '{mail}'", command.Email);
+                    return BadRequest("Access denied");
+                }
+
+                _logger.LogInformation("Succesfully login attempt with user name: '{mail}'", command.Email);
                 return Ok(result);
             }
 
