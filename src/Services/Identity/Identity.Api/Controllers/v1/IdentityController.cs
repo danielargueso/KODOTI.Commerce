@@ -2,7 +2,6 @@
 using Identity.Service.EventHandlers.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.Api.Controllers.v1
@@ -22,24 +21,7 @@ namespace Identity.Api.Controllers.v1
             _mediator = mediator;
         }
 
-        [HttpPost("createuser")]
-        public async Task<IActionResult> CreateUser(UserCreateCommand command)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _mediator.Send(command);
-
-                if (!result.Succeeded)
-                {
-                    _logger.LogError("Error during user creation process for user name: '{mail}'", command.Email);
-                    return BadRequest(result.Errors);
-                }
-
-                return Ok(result);
-            }
-
-            return BadRequest();
-        }
+        
 
         [HttpPost("authentication")]
         public async Task<IActionResult> Authentication(UserLoginCommand command)
@@ -60,6 +42,7 @@ namespace Identity.Api.Controllers.v1
 
             return BadRequest();
         }
+
     }
 }
 

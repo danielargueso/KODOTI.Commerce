@@ -1,13 +1,18 @@
 ﻿using System.Reflection;
+using System.Text;
 using Common.Logging;
 using HealthChecks.UI.Client;
 using Identity.Domain;
 using Identity.Persistence.Database;
+using Identity.Service.Queries;
+using Identity.Service.Queries.Contracts;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +52,31 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 1;
 });
 
+// Add Autentication
+var secretKey = Encoding.ASCII.GetBytes(
+    builder.Configuration.GetValue<string>("SecretKey")
+    );
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(opts =>
+    {
+        opts.RequireHttpsMetadata = false;
+        opts.SaveToken = true;
+        opts.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(secretKey),
+            ValidateIssuer = false,
+            ValidateAudience = false,
+        };
+    });
+
+// JWT configuration
+//builder.Services
+//    .AddHttpContextAccessor()
+//    .AddAuthorization()
+//    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme);
+
+
 // Add LogSystem
 builder.Logging.AddProvider(
     new SyslogLoggerProvider(
@@ -58,6 +88,8 @@ builder.Logging.AddProvider(
 
 // Add Dependency Injection
 builder.Services.AddMediatR(Assembly.Load("Identity.Service.EventHandlers"));
+builder.Services.AddTransient<IApplicationUserQueryService, ApplicationUserQueryService>();
+builder.Services.AddTransient<IApplicationUserRoleQueryService, ApplicationUserRoleQueryService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

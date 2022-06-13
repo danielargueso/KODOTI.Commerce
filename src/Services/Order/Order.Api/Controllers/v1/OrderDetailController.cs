@@ -3,11 +3,14 @@ using Order.Service.Queries.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Service.Common.Collection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Order.Api.Controllers.v1;
 
 
 [ApiController]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class OrderDetailController
 {
 	private readonly ILogger<OrderDetailController> _logger;

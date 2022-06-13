@@ -2,6 +2,8 @@
 using Customer.Service.Queries.Contracts;
 using Customer.Service.Queries.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Common.Collection;
 
@@ -9,8 +11,10 @@ using Service.Common.Collection;
 
 namespace Customer.API.Controllers;
 
+
 [ApiController]
 [Route("v1/clients")]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class ClientController : ControllerBase
 {
     private readonly ILogger<ClientController> _logger;

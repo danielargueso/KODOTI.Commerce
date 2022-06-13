@@ -1,14 +1,17 @@
-﻿using Order.Service.Queries.Contracts;
-using Order.Service.Queries.DTOs;
-using MediatR;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Service.Common.Collection;
+using Order.Service.Queries.Contracts;
+using Order.Service.Queries.DTOs;
 using Order.Services.EventHandlers.Commands;
+using Service.Common.Collection;
 
 namespace Order.Api.Controllers.v1;
 
 [Route("v1/orders")]
 [ApiController]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class OrderController : ControllerBase
 {
 	private readonly ILogger<OrderController> _logger;
