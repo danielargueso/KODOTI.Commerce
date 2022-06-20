@@ -49,7 +49,8 @@ namespace Catalog.Listener.AzureServiceBus
         private async void OnStarted()
         {
             await _processor.StartProcessingAsync();
-            _logger.LogInformation($"Started listening Azure Service Bus in queue '{_queueName}' sucessfully");
+            _logger.LogInformation($"Started listening Azure Service Bus in queue '{0}' sucessfully", _queueName);
+            Console.WriteLine($"Started listening Azure Service Bus in queue '{0}' sucessfully", _queueName);
         }
 
         private async void OnStopping()

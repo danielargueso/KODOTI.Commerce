@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Catalog\" />
+    <None Remove="Catalog\DTOs\" />
+    <None Remove="Catalog\Commands\" />
+    <None Remove="Catalog\Common\" />
+    <None Remove="Order\" />
+    <None Remove="Order\DTOs\" />
+    <None Remove="Order\Commands\" />
+    <None Remove="Order\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Customer\" />
+    <Folder Include="Customer\DTOs\" />
+    <Folder Include="Customer\Commands\" />
+    <Folder Include="Catalog\" />
+    <Folder Include="Catalog\Commands\" />
+    <Folder Include="Catalog\DTOs\" />
+    <Folder Include="Catalog\Common\" />
+    <Folder Include="Order\" />
+    <Folder Include="Order\DTOs\" />
+    <Folder Include="Order\Commands\" />
+    <Folder Include="Order\Common\" />
+  </ItemGroup>
+</Project>

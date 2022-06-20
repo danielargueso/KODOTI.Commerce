@@ -20,6 +20,7 @@ public class AzureServiceBusMessageHandler : IAzureServiceBusMessageHandler
     public async Task MessageHandler(ProcessMessageEventArgs args)
     {
         _logger.LogInformation("Received new message from Azure Service Bus");
+        Console.WriteLine("Received new message from Azure Service Bus");
         string body = args.Message.Body.ToString();
 
         var entity = ConvertMessageToCommand(body);

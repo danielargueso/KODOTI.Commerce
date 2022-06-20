@@ -19,6 +19,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// Add Middleware
+builder.Services.AddHttpContextAccessor();
+
 // Add DbContext
 builder.Services.AddDbContext<OrderDbContext>(opts =>
     opts.UseSqlServer(
@@ -93,6 +96,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllers();
 

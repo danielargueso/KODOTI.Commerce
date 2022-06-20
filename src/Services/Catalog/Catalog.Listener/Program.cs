@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 
 //using IHost host = Host.CreateDefaultBuilder(args).Build();
 
+// Add Middleware
+
 IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .AddEnvironmentVariables()
@@ -34,6 +36,9 @@ using IHost host = Host.CreateDefaultBuilder(args)
     })
     .ConfigureServices(services =>
     {
+        // Add Middleware
+        services.AddHttpContextAccessor();
+
         services.AddHostedService<AzureServiceBusListenerHostedService>();
         services.Configure<ApiUrls>(
             opts => config.GetSection(ApiUrls.SectionName).Bind(opts)
