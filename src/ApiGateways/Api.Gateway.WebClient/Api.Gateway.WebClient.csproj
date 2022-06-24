@@ -19,10 +19,12 @@
     <None Remove="Controllers\" />
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Config\" />
+    <None Remove="Controllers\v1\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Config\" />
+    <Folder Include="Controllers\v1\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Api.Gateway.Proxies\Api.Gateway.Proxies.csproj">

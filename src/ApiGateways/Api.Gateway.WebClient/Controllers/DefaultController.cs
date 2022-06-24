@@ -5,6 +5,8 @@
 namespace Api.Gateway.WebClient.Controllers;
 
 [Route("/")]
+[ApiController]
+[ApiExplorerSettings(IgnoreApi = true)]
 public class DefaultController : ControllerBase
 {
     // GET: api/values

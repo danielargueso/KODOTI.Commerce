@@ -11,7 +11,7 @@ namespace Api.Gateway.WebClient.Controllers;
 
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [ApiController]
-[Route("[controller]")]
+[Route("v1/[controller]")]
 public class ProductsController : ControllerBase
 {
     private readonly ICatalogProxy _catalogProxy;
