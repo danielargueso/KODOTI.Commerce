@@ -1,10 +1,12 @@
-﻿using Api.Gateway.Models.Order.Common;
+﻿using Api.Gateway.Models.Customer.DTOs;
+using Api.Gateway.Models.Order.Common;
 
 namespace Api.Gateway.Models.Order.DTOs;
 
 public class OrderDto
 {
     public int OrderId { get; set; } = 0;
+    public ClientDto Client { get; set; } = new();
     public OrderStatus Status { get; set; } = OrderStatus.Pending;
     public OrderPayment PaymentType { get; set; } = OrderPayment.CreditCard;
     public int ClientId { get; set; } = 0;

@@ -1,4 +1,5 @@
-﻿using Api.Gateway.Models;
+﻿using System.Data;
+using Api.Gateway.Models;
 using Api.Gateway.Models.Order.Commands;
 using Api.Gateway.Models.Order.DTOs;
 using Api.Gateway.Proxies.Catalog.Contracts;
@@ -46,7 +47,22 @@ public class OrdersController : ControllerBase
 
             foreach (var order in result.Items)
             {
-                order.ClientId = clients.Items.Single(x => x.ClientId == order.ClientId).ClientId;
+                order.Client = clients.Items.Single(x => x.ClientId == order.ClientId);
+                order.ClientId = order.Client.ClientId;
+
+                var productsIds = order.Items
+                    .Select(x => x.ProductId)
+                    .GroupBy(g => g)
+                    .Select(y => y.Key)
+                    .ToList();
+
+                var products = await _catalogProxy.GetAllAsync(1, productsIds.Count(), productsIds);
+
+                foreach (var orderItem in order.Items)
+                {
+                    orderItem.Product = products.Items.Single(x => x.ProductId == orderItem.ProductId);
+                }
+
             }
         }
 
@@ -59,7 +75,7 @@ public class OrdersController : ControllerBase
         var result = await _orderProxy.GetAsync(id);
 
         // Retrieve client
-        result.ClientId = (await _customerProxy.GetAsync(result.ClientId)).ClientId;
+        result.Client = await _customerProxy.GetAsync(result.ClientId);
 
         // Retrieve product ids
         var productIds = result.Items
@@ -71,7 +87,8 @@ public class OrdersController : ControllerBase
 
         foreach (var item in result.Items)
         {
-            item.ProductId = products.Items.Single(x => x.ProductId == item.ProductId).ProductId;
+            item.Product = products.Items.Single(x => x.ProductId == item.ProductId);
+            item.ProductId = item.Product.ProductId;
         }
 
         return result;
